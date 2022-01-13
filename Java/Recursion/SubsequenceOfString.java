@@ -1,7 +1,7 @@
 public class SubsequenceOfString {
     public static void main(String[] args) {
         String str = "abc";
-        // subsequenceOfString(str, "");
+        subsequenceOfString(str, "");
         subsequenceOfStringWithAscii(str,"");
     }
 
