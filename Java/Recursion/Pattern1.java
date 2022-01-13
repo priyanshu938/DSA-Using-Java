@@ -1,3 +1,5 @@
+package Recursion;
+
 public class Pattern1 {
 
     public static void pattern1(int r, int c) {
