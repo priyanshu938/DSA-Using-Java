@@ -1,6 +1,6 @@
 public class LetterCombinationsPhoneNo {
     public static void main(String[] args) {
-        letterCombinations("", "9234");
+        letterCombinations("", "12");
     }
 
     private static void letterCombinations(String p, String up) {
