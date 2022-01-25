@@ -1,7 +1,4 @@
-
-
 import java.util.*;
-
 public class CheckArraySort {
     public static boolean checkArraySort(List<Integer> list, int i) {
 
