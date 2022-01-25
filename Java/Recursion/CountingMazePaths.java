@@ -8,12 +8,15 @@ public class CountingMazePaths {
         System.out.println(returnDiagVertHorPath(3, 3, ""));
         boolean[][] board = {
                 { true, true, true },
-                { true, false, true },
+                { true, true, true },
                 { true, true, true }
 
         };
+        int[][] path = new int[board.length][board[0].length];
         restrictionPath(0, 0, board, "");
         restrictionPathDiagonalMoveAllowed(0, 0, board, "");
+        allPaths(0, 0, board, "");
+        allPathsPrint(0, 0, board, path, "", 1);
     }
 
     private static void restrictionPath(int r, int c, boolean[][] board, String s) {
@@ -100,6 +103,61 @@ public class CountingMazePaths {
             printMazePath(r, c - 1, s + "R");
         }
 
+    }
+
+    // backtracking
+    private static void allPaths(int r, int c, boolean[][] board, String s) {
+        if (r == board.length - 1 && c == board[0].length - 1) {
+            System.out.println(s);
+            return;
+        }
+
+        if (!board[r][c])
+            return;
+        board[r][c] = false;
+        if (r < board.length - 1)
+            allPaths(r + 1, c, board, s + "D");
+
+        if (c < board[0].length - 1)
+            allPaths(r, c + 1, board, s + "R");
+
+        if (r > 0)
+            allPaths(r - 1, c, board, s + "U");
+
+        if (c > 0)
+            allPaths(r, c - 1, board, s + "L");
+        board[r][c] = true;
+    }
+
+    private static void allPathsPrint(int r, int c, boolean[][] board, int[][] path, String s, int step) {
+        if (r == board.length - 1 && c == board[0].length - 1) {
+            path[r][c] = step;
+            for (int[] arr : path) {
+                System.out.println(Arrays.toString(arr));
+            }
+            System.out.println();
+            System.out.println(s);
+            System.out.println();
+            return;
+        }
+
+        if (!board[r][c])
+            return;
+        board[r][c] = false;
+        path[r][c] = step;
+        if (r < board.length - 1)
+            allPathsPrint(r + 1, c, board, path, s + "D", step + 1);
+
+        if (c < board[0].length - 1)
+            allPathsPrint(r, c + 1, board, path, s + "R", step + 1);
+
+        if (r > 0)
+            allPathsPrint(r - 1, c, board, path, s + "U", step + 1);
+
+        if (c > 0)
+            allPathsPrint(r, c - 1, board, path, s + "L", step + 1);
+        board[r][c] = true;
+        path[r][c] = 0;
     }
 
 }
