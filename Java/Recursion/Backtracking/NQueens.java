@@ -1,12 +1,16 @@
 public class NQueens {
+    static int count = 0;
+
     public static void main(String[] args) {
-        int n = 8;
+        int n = 4;
         boolean[][] board = new boolean[n][n];
         nQueens(board, 0);
+        System.out.println("Total possible solutions are : " + count);
     }
 
     private static void nQueens(boolean[][] board, int row) {
         if (row == board.length) {
+            count++;
             display(board);
             System.out.println();
             return;
