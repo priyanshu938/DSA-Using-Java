@@ -21,7 +21,6 @@ public class BeautifulFunction {
         else
             return num / (int) Math.pow(10, count);
     }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
@@ -36,6 +35,5 @@ public class BeautifulFunction {
         }
         System.out.println(stack.size());
         scanner.close();
-
     }
 }
