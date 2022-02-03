@@ -33,7 +33,7 @@ public class BeautifulFunction {
                 break;
             stack.push(beautiful);
         }
-        System.out.println(stack.size());
+        System.out.println(n==1 ? stack.size() : stack.size() + 1);
         scanner.close();
     }
 }
