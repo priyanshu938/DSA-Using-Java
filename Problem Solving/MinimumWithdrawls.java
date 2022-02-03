@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MinimumWithdraw {
+public class MinimumWithdrawls {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
