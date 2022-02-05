@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class CombinationSum {
     public static void main(String[] args) {
         int arr[] = { 1, 2, 3, 4 }, target = 8;
@@ -8,7 +7,6 @@ public class CombinationSum {
         findCombinationRepetitionAllowed(0, target, stack, arr);
         System.out.println("When repetition is not allowed : ");
         findCombinationRepetitionNotAllowed(0, target, stack, arr);
-
     }
 
     // repeatition allowed
