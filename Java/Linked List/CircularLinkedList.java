@@ -7,7 +7,7 @@ class Node<T> {
     }
 }
 
-public class SinglyLinkedList {
+public class CircularLinkedList {
 
     public static Node head, tail;
 
@@ -16,6 +16,7 @@ public class SinglyLinkedList {
         if (pos == 0) {
             newNode.next = head;
             head = newNode;
+            tail.next = head;
             return;
         }
         Node temp = head;
@@ -31,6 +32,7 @@ public class SinglyLinkedList {
         Node temp = head;
         if (pos == 0) {
             head = head.next;
+            tail.next = head;
         }
         for (int i = 0; i < pos - 1; i++) {
             temp = temp.next;
@@ -40,8 +42,9 @@ public class SinglyLinkedList {
     }
 
     public static void traverse() {
-        Node temp = head;
-        while (temp != null) {
+        Node temp = head.next;
+        System.out.println(head.data);
+        while (temp != head) {
             System.out.println(temp.data);
             temp = temp.next;
         }
@@ -58,14 +61,14 @@ public class SinglyLinkedList {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        n5.next = null;
+        n5.next = head;
         tail = n5;
         System.out.println("Linked list is : ");
         traverse();
-        insert(10, 3);
+        insert(10, 0);
         System.out.println("Linked list after insertion is : ");
         traverse();
-        delete(2);
+        delete(0);
         System.out.println("Linked list after deletion is : ");
         traverse();
     }
