@@ -28,6 +28,12 @@ public class CheckBST {
         n2.right = n4;
         n5.right = n6;
         n6.left = n7;
+        /*
+         * Inorder traversal of a BST gives a sorted list, so we will find the inorder
+         * traversal of the tree and after getting the inorder traversal of the tree if
+         * its not sorted then we
+         * will print NOo else YES
+         */
         inorder(root);
         System.out.println(li);
         int k = -1;
