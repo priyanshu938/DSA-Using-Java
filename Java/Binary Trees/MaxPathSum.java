@@ -19,8 +19,9 @@ public class MaxPathSum {
     private static int maxPathSum(Node root, int[] max) {
         if (root == null)
             return 0;
-        int leftSum = maxPathSum(root.left, max);
-        int rightSum = maxPathSum(root.right, max);
+        // ignoring negative sums by taking Max(0,leftSum) and same for right sum
+        int leftSum = Math.max(0, maxPathSum(root.left, max));
+        int rightSum = Math.max(0, maxPathSum(root.right, max));
         max[0] = Math.max(max[0], root.data + leftSum + rightSum);// this will update max variable
         return root.data + Math.max(leftSum, rightSum);// this will process for each node
     }
