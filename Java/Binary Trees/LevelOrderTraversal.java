@@ -29,11 +29,12 @@ public class LevelOrderTraversal {
             int level = q.size();
             List<Integer> sublist = new LinkedList<Integer>();
             for (int i = 0; i < level; i++) {
-                if (q.peek().left != null)
-                    q.offer(q.peek().left);
-                if (q.peek().right != null)
-                    q.offer(q.peek().right);
-                sublist.add(q.poll().data);
+                Node x=q.poll();
+                if (x.left != null)
+                    q.offer(x.left);
+                if (x.right != null)
+                    q.offer(x.right);
+                sublist.add(x.data);
             }
             ds.add(sublist);
         }
