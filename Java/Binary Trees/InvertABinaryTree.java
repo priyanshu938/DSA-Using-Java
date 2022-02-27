@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class InvertABinaryTree {
     public static void main(String[] args) {
         Node n1 = new Node(1);
@@ -26,8 +24,9 @@ public class InvertABinaryTree {
     private static Node invertBinaryTree(Node root) {
         if (root == null)
             return root;
-        Node left = invertBinaryTree(root.left);
-        Node right = invertBinaryTree(root.right);
+        Node left = invertBinaryTree(root.left); // taking left node
+        Node right = invertBinaryTree(root.right);// taking right node
+        // Swap left and right node
         root.left = right;
         root.right = left;
         return root;
