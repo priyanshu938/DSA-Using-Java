@@ -75,9 +75,9 @@ public class TShirtMissing {
         }
         scanner.close();
         System.out.println("Output :");
-        for (i = 0; i < t; i++) {
-            for (j = 0; j < 3; j++) {
-                System.out.print(ans.get(i).get(j) + " ");
+        for (List<Integer> x : ans) {
+            for (Integer y : x) {
+                System.out.print(y + " ");
             }
             System.out.println();
         }
