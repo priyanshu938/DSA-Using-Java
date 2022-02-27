@@ -18,6 +18,7 @@ public class RightViewOfBinaryTree {
         n3.left = n6;
         n3.right = n7;
         /*
+         * Approach 1st :
          * 1- Do level order traversal of the tree.
          * 2- Store each level traversal in some 2D List.
          * 3- The last element of each sub-list is the right view of the binary tree.
@@ -28,6 +29,25 @@ public class RightViewOfBinaryTree {
         for (List<Integer> x : ds) {
             System.out.print(x.get(x.size() - 1) + " ");
         }
+
+        /*
+         * Approach 2nd :
+         * Below one is the Recursive solution
+         */
+        List<Integer> ans = new LinkedList<Integer>();
+        rightView(n1, 0, ans);
+        System.out.println(ans);
+    }
+
+    private static void rightView(Node root, int level, List<Integer> ans) {
+        // Root-Right-Left Traversal and when ans size is same as level ,add the node
+        if (root == null)
+            return;
+        if (level == ans.size())
+            ans.add(root.data);
+        rightView(root.right, level + 1, ans);
+        rightView(root.left, level + 1, ans);
+
     }
 
     private static List<List<Integer>> levelOrderTraversal(Node root) {
