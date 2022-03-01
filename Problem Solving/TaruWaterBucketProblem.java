@@ -35,7 +35,7 @@ public class TaruWaterBucketProblem {
         for (int i = 1; i <= M; i++)
             queries.add(scanner.nextInt());
         scanner.close();
-        // int N = 3, queries[] = { 1, 3,3 }, NCopy = N, evenFill = 0, oddFill = 0;
+        // int N = 7, queries[] = { 1, 2,2 }, NCopy = N, evenFill = 0, oddFill = 0;
         for (Integer i : queries) {
             if (i == 1) {
                 N = NCopy;
