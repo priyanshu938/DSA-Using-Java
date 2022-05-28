@@ -3,19 +3,20 @@ import java.util.*;
 public class BFS {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int V = sc.nextInt(), E = sc.nextInt(), i, u, v;
-        ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-        for (i = 1; i <= V+1; i++)
-            adj.add(new ArrayList<Integer>());
+        try (Scanner sc = new Scanner(System.in)) {
+            int V = sc.nextInt(), E = sc.nextInt(), i, u, v;
+            ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
+            for (i = 1; i <= V+1; i++)
+                adj.add(new ArrayList<Integer>());
 
-        for (i = 1; i <= E; i++) {
-            u = sc.nextInt();
-            v = sc.nextInt();
-            adj.get(u).add(v);
-            // adj.get(v).add(u);
+            for (i = 1; i <= E; i++) {
+                u = sc.nextInt();
+                v = sc.nextInt();
+                adj.get(u).add(v);
+                adj.get(v).add(u);
+            }
+            System.out.println(bfsOfGraph(V, adj));
         }
-        System.out.println(bfsOfGraph(V, adj));
 
     }
 
