@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CycleDetectBfs {
+public class CycleDetectDfs {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
@@ -24,28 +24,21 @@ public class CycleDetectBfs {
         boolean vis[] = new boolean[V + 1];
         for (int i = 1; i <= V; i++) {
             if (vis[i] == false) {
-                if (checkForCycle(adj, i, vis))
+                if (checkForCycle(adj, i, -1, vis))
                     return true;
             }
         }
         return false;
     }
 
-    private static boolean checkForCycle(ArrayList<ArrayList<Integer>> adj, int s, boolean[] vis) {
-        Queue<Node> q = new LinkedList<>();
-        q.offer(new Node(s, -1));
-        vis[s] = true;
-        while (!q.isEmpty()) {
-            Node node = q.poll();
-            int curr = node.first;
-            int par = node.second;
-            for (Integer it : adj.get(curr)) {
-                if (vis[it] == false) {
-                    q.add(new Node(it, curr));
-                    vis[it] = true;
-                } else if (par != it)
+    private static boolean checkForCycle(ArrayList<ArrayList<Integer>> adj, int node, int parent, boolean[] vis) {
+        vis[node] = true;
+        for (Integer it : adj.get(node)) {
+            if (vis[it] == false) {
+                if (checkForCycle(adj, it, node, vis))
                     return true;
-            }
+            } else if (it != parent)
+                return true;
         }
         return false;
     }
