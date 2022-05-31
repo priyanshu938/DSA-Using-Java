@@ -17,7 +17,7 @@ class Pair {
     }
 }
 
-public class ShortestPathInWeightedDag {
+public class ShortestPathInWeightedDAG {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             int V = scanner.nextInt();
@@ -67,7 +67,7 @@ public class ShortestPathInWeightedDag {
         while (!stack.isEmpty()) {
             Integer node = stack.pop();
             for (Pair it : adj.get(node)) {
-                if (dis[node] + 1 < dis[it.getV()]) {
+                if (dis[node] + it.getW() < dis[it.getV()]) {
                     dis[it.getV()] = dis[node] + it.getW();
                 }
             }
