@@ -51,6 +51,7 @@ public class KruskalAlgorithm {
     }
 
     private static void kruskalAlgorithm(ArrayList<Node> adj, int n) {
+        // first sort the nodes according to edge weights.
         Collections.sort(adj, new SortComparator());
         int parent[] = new int[n], rank[] = new int[n];
         // initialize with default values
@@ -62,8 +63,9 @@ public class KruskalAlgorithm {
         ArrayList<Node> mst = new ArrayList<Node>();// to store nodes in mst
         for (Node it : adj) {
             /*
-             * check whether both u and v belong to same component or not,if yes add them in
-             * mst and perform union of them
+             * check whether both u and v belong to different component or not,if yes then add them in
+             * mst and perform union of them (if parent of both the nodes are same that
+             * means they are in same component)
              */
             if (findParent(it.getU(), parent) != findParent(it.getV(), parent)) {
                 costMst += it.getWt();
