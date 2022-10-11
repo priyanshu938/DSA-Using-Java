@@ -1,0 +1,52 @@
+//Structure of node:
+class Node
+{
+	constructor(data)
+	{
+		this.data=data;
+		this.next = null;
+	}
+}
+//function to merge two sorted linked lists
+function Mergethesortedll(headA,headB)
+{
+	/* a dummy first node with which we can start */
+	let dummyNode = new Node(0);
+	
+	/* here tail represents the pointer to the last node */
+	let tail = dummyNode;
+	while(true)
+	{
+		
+		/* if first linked list is empty */
+		if(headA == null)
+		{
+			tail.next = headB;
+			break;
+		}
+        /* if second linked list is empty */
+		if(headB == null)
+		{
+			tail.next = headA;
+			break;
+		}
+		
+		/* Comparing the data of the two lists 
+		 and advancing the head to the next Node*/
+		
+		if(headA.data <= headB.data)
+		{
+			tail.next = headA;
+			headA = headA.next;
+		}
+		else
+		{
+			tail.next = headB;
+			headB = headB.next;
+		}
+		
+		
+		tail = tail.next;
+	}
+	return dummyNode.next;
+}
