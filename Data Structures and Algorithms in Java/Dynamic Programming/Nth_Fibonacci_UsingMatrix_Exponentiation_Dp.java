@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
-public class nth_Fabinacci_Using_MATRIX_EPoniencation_DP {
+public class Nth_Fibonacci_UsingMatrix_Exponentiation_Dp {
         static long mod = 1000000007;
         public static void main(String[] args) {
             Scanner sc=new Scanner(System.in);
             System.out.println("Enter");
             int n= sc.nextInt();
-            System.out.println("Nth Fabinacci is: ");
+            System.out.println("Nth Fibonacci is: ");
 int a=fibonacciNumber(n);
-            System.out.println("Nth fabbinacci is:"+a);
+            System.out.println("Nth Fibonacci is:"+a);
         }
         public static int fibonacciNumber(int n) {
             // Write your code here.
